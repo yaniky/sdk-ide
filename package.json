@@ -1,12 +1,13 @@
 {
   "name": "sdk-ide",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "sdk 框架",
-  "main": "dist/main.js",
+  "main": "dist/js/main.js",
   "scripts": {
     "dev": "cross-env BUILD_ENV=development webpack-dev-server --hot --open --config build/webpack.dev.js",
     "build": "yarn lint && cross-env BUILD_ENV=production webpack --config build/webpack.prod.js",
-    "lint": "eslint --fix --ext .js,.vue ./src/"
+    "lint": "eslint --fix --ext .js,.vue ./src/",
+    "prepublish": "yarn build"
   },
   "author": "yaniky",
   "license": "ISC",
