@@ -13,7 +13,8 @@ module.exports = function (api) {
         plugins: [
             "@babel/plugin-transform-runtime",
             "@babel/plugin-transform-regenerator",
-            "syntax-dynamic-import"
+            "syntax-dynamic-import",
+            "@babel/plugin-proposal-class-properties"
         ]
     };
 };
