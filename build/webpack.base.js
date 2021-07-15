@@ -27,16 +27,17 @@ module.exports = {
         extensions: [".js"]
     },
     plugins: [
-        new webpack.HashedModuleIdsPlugin(),
         // new CleanWebpackPlugin(),
         new webpack.DefinePlugin({
             appGlobal: appEnv
         }),
-        new CopyWebpackPlugin([
-            {
-                from: "static/*"
-            }
-        ]),
+        new CopyWebpackPlugin({
+            patterns: [
+                {
+                    from: "static/*"
+                }
+            ]
+        }),
         new HappyPack({
             id: "happyBabel",
             loaders: [{

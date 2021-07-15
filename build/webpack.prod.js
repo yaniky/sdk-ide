@@ -1,10 +1,8 @@
 const path = require("path");
-const merge = require("webpack-merge");
+const { merge } = require("webpack-merge");
 const common = require("./webpack.base.js");
 const TerserPlugin = require("terser-webpack-plugin");
 // const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
-const SpeedMeasurePlugin = require("speed-measure-webpack-plugin");
-const smp = new SpeedMeasurePlugin();
 
 const config = merge(common, {
     mode: "production",
@@ -23,10 +21,11 @@ const config = merge(common, {
         globalObject: "this"
     },
     optimization: {
+        minimize: true,
         minimizer: [
             new TerserPlugin()
         ]
     }
 });
 
-module.exports = smp.wrap(config);
+module.exports = config;
